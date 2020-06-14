@@ -2,6 +2,8 @@
 YouTubeLiveのチャットを某動画サイト風にオーバーレイします.  
 これでYouTubeで動画を見ながら視線を変えずにチャットを見ることができます.  
   
+![example.gif](https://github.com/T3aHat/JikkyoAlways_for_YouTube/blob/master/image/example.gif)  
+
 # 推奨環境  
 Windows10-64bit  
 YouTube Data API v3  
