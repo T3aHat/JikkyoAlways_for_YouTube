@@ -1,6 +1,6 @@
 # JikkyoAlways_for_YouTube  
 YouTubeLiveのチャットを某動画サイト風にオーバーレイします.  
-これでYouTubeで動画を見ながら視線を変えずにチャットを見ることができます.  
+これによりYouTubeで動画を見ながら視線を変えずにチャットを見ることができます.  
   
 ![example.gif](https://github.com/T3aHat/JikkyoAlways_for_YouTube/blob/master/image/example.gif)  
 
