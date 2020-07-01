@@ -206,6 +206,7 @@ def fullscreen(fs):
 
 
 def get_chat_id(url):
+    global youtubeurl
     vid = url.replace('https://www.youtube.com/watch?v=', '')
     params = {'key': apikey, 'id': vid, 'part': 'liveStreamingDetails'}
     data = requests.get(
@@ -214,8 +215,9 @@ def get_chat_id(url):
     if 'activeLiveChatId' in liveStreamingDetails.keys():
         chat_id = liveStreamingDetails['activeLiveChatId']
     else:
-        chat_id = None
-        print("Can't get video id")
+        print("Authentication successful!\nBut,it can't get video id.Please change url")
+        youtubeurl = input("Input YouTube Live URL > ")
+        chat_id = get_chat_id(youtubeurl)
     return chat_id
 
 
@@ -234,7 +236,6 @@ def get_chat(chat_id, pageToken):
         msg = item['snippet']['displayMessage']
         if(len(msg) < max_length):
             results.append(msg)
-    print(results)
     nextPageToken = data['nextPageToken']
 
 
@@ -244,7 +245,7 @@ def reAuth():
     try:
         get_chat_id(youtubeurl)
         print("Authentication successful!")
-        config.add_section(section)
+        # config.add_section(section)
         config.set(section, "apikey", apikey)
         with open("config.ini", "w")as f:
             config.write(f)
@@ -269,8 +270,12 @@ if __name__ == '__main__':
         apikey = config.get(section, "apikey")
     except:
         apikey = reAuth()
-
-    chat_id = get_chat_id(youtubeurl)
+    while True:
+        try:
+            chat_id = get_chat_id(youtubeurl)
+            break
+        except:
+            apikey = reAuth()
 
     num_comment = 25
     fontsize = int(400/num_comment)
