@@ -245,7 +245,10 @@ def reAuth():
     try:
         get_chat_id(youtubeurl)
         print("Authentication successful!")
-        # config.add_section(section)
+        try:
+            config.add_section(section)
+        except:
+            pass
         config.set(section, "apikey", apikey)
         with open("config.ini", "w")as f:
             config.write(f)
