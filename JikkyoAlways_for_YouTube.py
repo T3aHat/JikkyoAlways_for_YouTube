@@ -114,6 +114,17 @@ def Change_word(f):
         txt7.insert(tkinter.END, duration)
         txt7.pack()
 
+        def transparency(n):
+            root.attributes("-alpha", float(int(n)/100))
+
+        label8 = tkinter.Label(
+            subf, text="transparency")
+        label8.pack()
+        scale1 = tkinter.Scale(subf, from_=10, to=100, resolution=10,
+                               tickinterval=90, orient=tkinter.HORIZONTAL, command=transparency)
+        scale1.set(100)
+        scale1.pack()
+
         button = tkinter.Button(subf, text="Apply")
         button.pack(side="right")
         button.bind("<1>", lambda word: get_word(
@@ -147,6 +158,16 @@ def get_default(f, bl1, txt1,  txt2, txt3, txt4, txt5, txt6, txt7):
     txt7.insert(tkinter.END, 10000)
 
 
+def reinit(b, a):
+    for i in range(b, a):
+        lefted.append(True)
+        lc.append(0)
+        nowdatalist.append('')  # padding(改良の余地あり)
+        labels.append(ttk.Label(master=root, text=nowdatalist[i], font=(
+            "メイリオ", fontsize, bold), foreground=colour, background="grey"))
+        labels[i].after(1, move(i))
+
+
 def get_word(f, bl1, txt1, txt2, txt3, txt4, txt5, txt6, txt7):
     global bold, num_comment, fontsize, max_length, v, acc, colour, duration
 
@@ -154,6 +175,8 @@ def get_word(f, bl1, txt1, txt2, txt3, txt4, txt5, txt6, txt7):
         bold = "bold"
     else:
         bold = "normal"
+    if(int(txt1.get())-num_comment > 0):
+        reinit(num_comment, int(txt1.get()))
     num_comment = int(txt1.get())
     if(txt2.get() == "rec"):
         i = 1
@@ -223,6 +246,7 @@ def get_chat_id(url):
 
 def get_chat(chat_id, pageToken):
     global results, nextPageToken
+    print('get_chat()')
     url = 'https://www.googleapis.com/youtube/v3/liveChat/messages'
     params = {'key': apikey, 'liveChatId': chat_id,
               'part': 'id,snippet,authorDetails'}
@@ -280,7 +304,7 @@ if __name__ == '__main__':
         except:
             apikey = reAuth()
 
-    num_comment = 25
+    num_comment = 15
     fontsize = int(400/num_comment)
     v = 1
     acc = 0.05
