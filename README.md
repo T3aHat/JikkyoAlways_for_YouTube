@@ -20,7 +20,7 @@ YouTubeLive のチャットを某動画サイト風にオーバーレイしま�
 
 コメントを YouTube Data API からではなく，chromedriver を用いて取得する ver.  
 GoogleCloudPlatform の登録が不要で，各環境に対応した[chromedriver](https://chromedriver.chromium.org/downloads)を DL すれば利用できます．  
-多くの人にとって，こちらの方がより簡単に(API 上限を気にせずに!)使用できます．
+**Python 環境を構築した多くの人にとって，こちらの方がより簡単に(API 上限を気にせずに!)使用できます．**
 
 # 推奨環境
 
@@ -30,7 +30,12 @@ GoogleCloudPlatform の登録が不要で，各環境に対応した[chromedrive
 
 # 利用方法
 
-- [chromedriver](https://chromedriver.chromium.org/downloads)を DL し，`JikkyoAlways_for_YouTube_chromedriver.py`と同じフォルダに`chromedriver.exe`を保存するか，.py の chromedriver への任意のパスに書き換える.
+- [chromedriver](https://chromedriver.chromium.org/downloads)を DL し，`JikkyoAlways_for_YouTube_chromedriver.py`と同じフォルダに`chromedriver.exe`を保存するか，.py 内の chromedriver へのパスを任意のパスに書き換える.
+
+```
+pip install beautifulsoup4
+pip install selenium
+```
 
 # 機能及び変数紹介
 
