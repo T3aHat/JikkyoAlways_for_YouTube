@@ -141,11 +141,11 @@ def Change_word(f):
 
 def get_default(f, bl1, txt1,  txt2, txt3, txt4, txt5, txt6, txt7):
     txt1.delete(0, tkinter.END)
-    txt1.insert(tkinter.END, 25)
+    txt1.insert(tkinter.END, 15)
     bl1.set(True)
 
     txt2.delete(0, tkinter.END)
-    txt2.insert(tkinter.END, 16)
+    txt2.insert(tkinter.END, "rec")
     txt3.delete(0, tkinter.END)
     txt3.insert(tkinter.END, 1)
     txt4.delete(0, tkinter.END)
