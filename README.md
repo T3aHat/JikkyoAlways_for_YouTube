@@ -7,16 +7,32 @@ YouTubeLive のチャットを某動画サイト風にオーバーレイしま�
 
 # 推奨環境
 
-Windows10-64bit  
-YouTube Data API v3  
-(JIkkyoAlways_for_YouTube.py 編集は Python3.7)
+- Windows10-64bit
+- YouTube Data API v3  
+  (JIkkyoAlways_for_YouTube.py 編集は Python3.7)
 
 # 利用方法
 
 - https://console.cloud.google.com で YouTube Data API v3 を有効化
 - Windows 環境で[JikkyoAlways_for_YouTube.exe](https://github.com/T3aHat/JikkyoAlways_for_YouTube/raw/master/JikkyoAlways_for_YouTube.exe)をダウンロード.なお,信頼できないサイトから DL した exe ファイルを実行する際は"十分"注意してください.
 
-  # 機能及び変数紹介
+# JikkyoAlways_for_YouTube_chromedriver
+
+コメントを YouTube Data API からではなく，chromedriver を用いて取得する ver.  
+GoogleCloudPlatform の登録が不要で，各環境に対応した[chromedriver](https://chromedriver.chromium.org/downloads)を DL すれば利用できます．  
+多くの人にとって，こちらの方がより簡単に(API 上限を気にせずに!)使用できます．
+
+# 推奨環境
+
+- Windows10-64bit
+- BeautifulSoup4 4.9.1
+- selenium 3.141.0
+
+# 利用方法
+
+- [chromedriver](https://chromedriver.chromium.org/downloads)を DL し，`JikkyoAlways_for_YouTube_chromedriver.py`と同じフォルダに`chromedriver.exe`を保存するか，.py の chromedriver への任意のパスに書き換える.
+
+# 機能及び変数紹介
 
 ## `ctrl+s`
 
